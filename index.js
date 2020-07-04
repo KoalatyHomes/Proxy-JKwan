@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '/client/dist')))
 
 //Matt's port
-const matt = 'http://localhost:7777';
+const matt = 'https://trulia-matthew.herokuapp.com/';
 
 app.all('/reviews', (req, res) => {
   console.log(`matt's review server is up`);
@@ -31,7 +31,7 @@ app.all('/reviews/vote/:id/:up', (req, res) => {
 })
 
 //Justin's port
-const justin = 'http://localhost:3003'
+const justin = 'http://13.57.228.197/'
 app.all('/api/similarListings', (req, res) => {
   console.log(`justin's similar server is up`);
   apiProxy.web(req, res, { target: justin });
@@ -42,14 +42,14 @@ app.all('/api/nearbyListings', (req, res) => {
   apiProxy.web(req, res, { target: justin });
 })
 //Kim's port
-const kim = 'http://localhost:3333'
-app.use('/api/home1', (req, res) => {
+const kim = 'http://13.56.248.150/'
+app.all('/api/home1', (req, res) => {
   console.log(`kim's server is up`)
   apiProxy.web(req, res, { target: kim });
 })
 
 // Sam's port
-const sam = 'http://localhost:3001'
+const sam = 'http://13.52.76.182'
 app.all('/api/listings', (req, res) => {
   console.log(`sam's server is up`);
   apiProxy.web(req, res, { target: sam });
